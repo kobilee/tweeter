@@ -1,0 +1,29 @@
+.new-tweet {
+  border-style:solid;
+  border-width:1px;
+  border-color:#dfdfdf;
+  margin: 2em;
+  padding: .5px 10px ;
+  background: #eeeeee;
+  border-radius: 5px;
+
+}
+.new-tweet h2{
+  border-bottom:  solid;
+  border-width:1px;
+  border-color:#060606;
+
+}
+
+.new-tweet .counter {
+  float: right;
+  line-height: 2.5;
+}
+
+.new-tweet input {
+  text-align: left;
+}
+.new-tweet textarea {
+  padding: 5px;
+  width: -webkit-fill-available;
+}
