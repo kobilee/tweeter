@@ -17,7 +17,7 @@
 
 .new-tweet .counter {
   float: right;
-  line-height: 2.5;
+  line-height: 1;
 }
 
 .new-tweet input {
@@ -25,5 +25,5 @@
 }
 .new-tweet textarea {
   padding: 5px;
-  width: -webkit-fill-available;
+  width: 100%;
 }
