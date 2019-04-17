@@ -6,6 +6,8 @@ $(document).ready(function() {
     $(".counter", $(this).parent()).text(display);
     if (display < 0) {
       $(".counter", $(this).parent()).css("color","red");
+    } else if (display >= 0){
+      $(".counter", $(this).parent()).css("color","#244751");
     }
   });
 });
