@@ -3,6 +3,14 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
+function dateDiff(date){
+  const diff = Date.now() - date;
+  const days = Math.floor(diff / 1000 / 60 / 60 / 24);
+
+   return days;
+}
+
 function  loadTweets(){
     $.ajax("/tweets", { method: 'GET' })
     .then(function (tweet) {
@@ -52,7 +60,7 @@ function createTweetElement(tweetObj){
   $body.append($content);
 
   //footer
-  $date.text(new Date(tweetObj.created_at));
+  $date.text(dateDiff(tweetObj.created_at) + " days ago");
   $footer.append($date);
   const $heart = $('<i class="fas fa-heart"></i>');
   const $retweet = $('<i class="fas fa-retweet"></i>');
@@ -75,11 +83,19 @@ $(document).ready(function() {
       e.preventDefault();
       //const check = $(this).serialize().split("=");
       if ($("textarea", this).val() === "" || $("textarea", this).val() === null) {
-        alert("Not a vaild tweet!");
+        if( $(".error").css('display') === 'none') {
+          $(".error").slideToggle(function() {
+            $(".error").text("Not a vaild tweet!");
+          });
+        }
         return;
       }
       else if ($("textarea", this).val().length > 140) {
-        alert("Your text cannot exceed 140 characters!");
+        if( $(".error").css('display') === 'none') {
+          $(".error").slideToggle(function() {
+            $(".error").text("Your text cannot exceed 140 characters!");
+          });
+        }
         return;
       }
 
@@ -88,6 +104,9 @@ $(document).ready(function() {
           loadTweets();
           $(".new-tweet .counter").text(140);
           $(".new-tweet textarea").val("");
+          if( $(".error").css('display') == 'block') {
+            $(".new-tweet .error").slideToggle();
+          }
       });
    });
 });

@@ -6,6 +6,7 @@
   padding: .5px 10px 25px;
   background: #eeeeee;
   border-radius: 5px;
+  display: none;
 
 }
 .new-tweet h2{
@@ -27,4 +28,11 @@
   padding: 5px;
   width: 100%;
   resize: none;
+}
+
+.new-tweet .error {
+  background-color: #f44336;
+  color:  white;
+  padding: 10px;
+  display: none;
 }

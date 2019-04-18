@@ -39,6 +39,8 @@ article.tweet footer{
 
 article.tweet p {
   padding: 5px ;
+  width: 100%;
+  word-break: break-all;
 }
 
 article.tweet footer div.icon {
